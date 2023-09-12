@@ -19,8 +19,7 @@ let number = 0
 let score = 20
 let highscore = 0
 
-resetGame()
-
+//Functions
 function resetGame(){
     number = Math.floor(Math.random() * 20 + 1)
     score = 20
@@ -39,13 +38,13 @@ function checkGuess(){
         labelMessage.textContent = "GAME OVER! Press 'Again' for new game"
         labelScore.textContent = 0
     }else if(parseInt(inpGuess.value) === number){
-        updateHighscore()
+        handleWin()
     }else{
         labelMessage.textContent = 'Guess again'
     }
 }
 
-function updateHighscore(){
+function handleWin(){
     if(newHighscore()){
         labelNumber.textContent = number
         labelMessage.textContent = "You Won! New highscore!!! \nPress 'Again' for new game."
@@ -64,3 +63,4 @@ function newHighscore(){
     }
 }
 
+resetGame()
